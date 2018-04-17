@@ -12,7 +12,7 @@ public class BubbleSort
     {
 
         int n = arr.length;
-        boolean swapped = false;
+        boolean swapped;
         //int newn; // 理论上,可以使用newn进行优化,但实际优化效果较差
         do
         {
