@@ -1,12 +1,16 @@
 package yh.algorithm.sort.shell;
 
+import yh.algorithm.sort.util.SortTestHelper;
+
 /**
  * 希尔排序
  */
 public class ShellSort
 {
     // 我们的算法类不允许产生任何实例
-    private ShellSort() {}
+    private ShellSort()
+    {
+    }
 
     public static void sort(Comparable[] arr)
     {
@@ -43,6 +47,9 @@ public class ShellSort
 
     public static void main(String[] args)
     {
-
+        int N = 20000;
+        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+        sort(arr);
+        SortTestHelper.printArray(arr);
     }
 }
