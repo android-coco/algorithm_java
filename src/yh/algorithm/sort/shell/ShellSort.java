@@ -12,7 +12,7 @@ public class ShellSort
     {
     }
 
-    public static void sort(Comparable[] arr)
+    public static <T extends  Comparable<T>>void sort(T[] arr)
     {
 
         int n = arr.length;
@@ -32,7 +32,7 @@ public class ShellSort
             {
 
                 // 对 arr[i], arr[i-h], arr[i-2*h], arr[i-3*h]... 使用插入排序
-                Comparable e = arr[i];
+                T e = arr[i];
                 int j = i;
                 for (; j >= h && e.compareTo(arr[j - h]) < 0; j -= h)
                 {
