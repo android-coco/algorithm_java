@@ -1,9 +1,5 @@
 package yh.algorithm.sort.insertion;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 import yh.algorithm.sort.util.SortTestHelper;
 
@@ -14,13 +10,13 @@ import yh.algorithm.sort.util.SortTestHelper;
 /**
  * 第一趟排序： 原始数据：0 11 3 20 9
  * 排序结果：0 11 3 20 9
- *
+ * <p>
  * 第二趟排序： 原始数据：0 11 3 20 9
  * 排序结果：0 3 11 20 9
- *
+ * <p>
  * 第三趟排序： 原始数据：0 3 11 20 9
  * 排序结果：0 3 9 11 20
- *
+ * <p>
  * 第四趟排序： 原始数据：0 3 9 11 20
  * 排序结果：0 3 9 11 20
  */
@@ -30,7 +26,39 @@ public class InsertionSort
     private InsertionSort()
     {
     }
+    // 对arr[l...r]的区间使用InsertionSort排序
+    public static <T extends Comparable<T>> void sort(T[] arr, int l, int r)
+    {
 
+        assert l >= 0 && l <= r && r < arr.length;
+
+        for (int i = l + 1; i <= r; i++)
+        {
+
+            // 寻找元素arr[i]合适的插入位置
+
+            // 写法1
+            //            for( int j = i ; j > 0 ; j -- )
+            //                if( arr[j].compareTo( arr[j-1] ) < 0 )
+            //                    swap( arr, j , j-1 );
+            //                else
+            //                    break;
+
+            // 写法2
+            //            for( int j = i; j > 0 && arr[j].compareTo(arr[j-1]) < 0 ; j--)
+            //                swap(arr, j, j-1);
+
+            // 写法3
+            T e = arr[i];//保存当前位置i的元素，其中[0,i-1]已经有序
+            int j = i;
+            for (; j > 0 && arr[j - 1].compareTo(e) > 0; j--)
+            {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = e;
+        }
+    }
+    // 对整个arr数组使用InsertionSort排序
     public static <T extends Comparable<T>> void sort(T[] arr)
     {
 
