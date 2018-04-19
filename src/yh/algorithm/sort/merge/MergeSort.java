@@ -1,12 +1,11 @@
 package yh.algorithm.sort.merge;
 
-import yh.algorithm.sort.insertion.InsertionSort;
 import yh.algorithm.sort.util.SortTestHelper;
 
 import java.util.Arrays;
 
 /**
- * 归并排序优化
+ * 归并排序
  */
 public class MergeSort
 {
@@ -25,13 +24,8 @@ public class MergeSort
     //递归使用归并排序,对arr[l...r]的范围进行排序
     protected static <T extends Comparable<T>> void sort(T[] arr, int l, int r)
     {
-//        if (l >= r)
-//        {
-//            return;
-//        }
-        // 优化2: 对于小规模数组, 使用插入排序
-        if( r - l <= 15 ){
-            InsertionSort.sort(arr, l, r);
+        if (l >= r)
+        {
             return;
         }
 
@@ -41,12 +35,8 @@ public class MergeSort
         //排序[mid+1.....r]
         sort(arr, mid + 1, r);
         // 优化1: 对于arr[mid] <= arr[mid+1]的情况,不进行merge
-        // 对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失
-        if (arr[mid].compareTo(arr[mid + 1]) > 0)
-        {
-            //归并
-            merge(arr, l, mid, r);
-        }
+        //归并
+        merge(arr, l, mid, r);
     }
 
     // 将arr[l...mid]和arr[mid+1...r]两部分进行归并
@@ -86,10 +76,9 @@ public class MergeSort
         // 可以在1秒之内轻松处理100万数量级的数据
         // 注意：不要轻易尝试使用SelectionSort, InsertionSort或者BubbleSort处理100万级的数据
         // 否则，你就见识了O(n^2)的算法和O(nlogn)算法的本质差异：）
-        int N = 10000000;
-        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 100000);
+        int N = 1000000;
+        Integer[] arr = SortTestHelper.generateRandomArray(N, 0, 1000000);
         SortTestHelper.testSort("yh.algorithm.sort.merge.MergeSort", arr);
-        sort(arr);
     }
 
 
