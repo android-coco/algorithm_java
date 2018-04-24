@@ -3,10 +3,13 @@ package yh.algorithm.sort.quick;
 import yh.algorithm.sort.insertion.InsertionSort;
 import yh.algorithm.sort.util.SortTestHelper;
 
+//3路快速排序
 public class QuickSort3Ways
 {
     // 我们的算法类不允许产生任何实例
-    private QuickSort3Ways() {}
+    private QuickSort3Ways()
+    {
+    }
 
 
     public static <T extends Comparable<T>> void sort(T[] arr)
@@ -17,10 +20,10 @@ public class QuickSort3Ways
 
     private static <T extends Comparable<T>> void sort(T[] arr, int l, int r)
     {
-//        if (l >= r)
-//        {
-//            return;
-//        }
+        //        if (l >= r)
+        //        {
+        //            return;
+        //        }
         // 对于小规模数组, 使用插入排序
         if (r - l <= 15)
         {

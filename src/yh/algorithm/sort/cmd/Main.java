@@ -1,5 +1,8 @@
 package yh.algorithm.sort.cmd;
 
+import yh.algorithm.sort.heap.HeapSort;
+import yh.algorithm.sort.heap.HeapSort1;
+import yh.algorithm.sort.heap.HeapSort2;
 import yh.algorithm.sort.merge.*;
 import yh.algorithm.sort.quick.*;
 import yh.algorithm.sort.util.SortTestHelper;
@@ -11,12 +14,14 @@ public class Main
     public static void main(String[] args)
     {
         quickSort();
-        basicSort();
-        advanceSort();
+        //basicSort();
+        //advanceSort();
     }
 
     // 比较Merge Sort, MergeSortBU; 优化过的MergeSort和MergeSortBU
     // 以及三种快速排序算法的性能
+    /// 比较 Merge Sort, 三种 Quick Sort 和本节介绍的两种 Heap Sort 的性能效率
+    // 注意, 这几种排序算法都是 O(nlogn) 级别的排序算法
     private static void quickSort()
     {
         int N = 1000000;
@@ -31,6 +36,9 @@ public class Main
         Integer[] arr5 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr6 = Arrays.copyOf(arr1, arr1.length);
         Integer[] arr7 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr8 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr9 = Arrays.copyOf(arr1, arr1.length);
+        Integer[] arr10 = Arrays.copyOf(arr1, arr1.length);
 
         SortTestHelper.testSort(MergeSort.class.getName(), arr1);
         SortTestHelper.testSort(MergeSortO.class.getName(), arr2);
@@ -39,6 +47,9 @@ public class Main
         SortTestHelper.testSort(QuickSort.class.getName(), arr5);
         SortTestHelper.testSort(QuickSort2Ways.class.getName(), arr6);
         SortTestHelper.testSort(QuickSort3Ways.class.getName(), arr7);
+        SortTestHelper.testSort(HeapSort1.class.getName(), arr8);
+        SortTestHelper.testSort(HeapSort2.class.getName(), arr9);
+        SortTestHelper.testSort(HeapSort.class.getName(), arr10);
 
         System.out.println();
 
@@ -56,6 +67,9 @@ public class Main
         arr5 = Arrays.copyOf(arr1, arr1.length);
         arr6 = Arrays.copyOf(arr1, arr1.length);
         arr7 = Arrays.copyOf(arr1, arr1.length);
+        arr8 = Arrays.copyOf(arr1, arr1.length);
+        arr9 = Arrays.copyOf(arr1, arr1.length);
+        arr10 = Arrays.copyOf(arr1, arr1.length);
 
         SortTestHelper.testSort(MergeSort.class.getName(), arr1);
         SortTestHelper.testSort(MergeSortO.class.getName(), arr2);
@@ -64,6 +78,9 @@ public class Main
         SortTestHelper.testSort(QuickSort.class.getName(), arr5);
         SortTestHelper.testSort(QuickSort2Ways.class.getName(), arr6);
         SortTestHelper.testSort(QuickSort3Ways.class.getName(), arr7);
+        SortTestHelper.testSort(HeapSort1.class.getName(), arr8);
+        SortTestHelper.testSort(HeapSort2.class.getName(), arr9);
+        SortTestHelper.testSort(HeapSort.class.getName(), arr10);
 
         System.out.println();
 
@@ -78,7 +95,9 @@ public class Main
         arr5 = Arrays.copyOf(arr1, arr1.length);
         arr6 = Arrays.copyOf(arr1, arr1.length);
         arr7 = Arrays.copyOf(arr1, arr1.length);
-
+        arr8 = Arrays.copyOf(arr1, arr1.length);
+        arr9 = Arrays.copyOf(arr1, arr1.length);
+        arr10 = Arrays.copyOf(arr1, arr1.length);
 
         SortTestHelper.testSort(MergeSort.class.getName(), arr1);
         SortTestHelper.testSort(MergeSortO.class.getName(), arr2);
@@ -88,6 +107,9 @@ public class Main
         //SortTestHelper.testSort(QuickSort.class.getName(), arr5);
         SortTestHelper.testSort(QuickSort2Ways.class.getName(), arr6);
         SortTestHelper.testSort(QuickSort3Ways.class.getName(), arr7);
+        SortTestHelper.testSort(HeapSort1.class.getName(), arr8);
+        SortTestHelper.testSort(HeapSort2.class.getName(), arr9);
+        SortTestHelper.testSort(HeapSort.class.getName(), arr10);
     }
 
     //排序进阶

@@ -2,7 +2,7 @@ package yh.algorithm.sort.quick;
 
 import yh.algorithm.sort.insertion.InsertionSort;
 import yh.algorithm.sort.util.SortTestHelper;
-
+//快速排序
 public class QuickSort
 {
     // 我们的算法类不允许产生任何实例
